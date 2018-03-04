@@ -89,22 +89,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ProductsDataBase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="App_Data\ProductsDataBase.mdf" />
     <Content Include="App_Data\ProductsDataBase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>ProductsDataBase.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
     <Content Include="Models\ProductsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ProductsModel.Context.cs</LastGenOutput>
+      <DependentUpon>ProductsModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ProductsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProductsModel.edmx</DependentUpon>
+      <LastGenOutput>ProductsModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -113,10 +117,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductsModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ProductsModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Table.cs">
+      <DependentUpon>ProductsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -125,9 +137,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ProductsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\ProductsModel.edmx.diagram">
+    <Content Include="Models\ProductsModel.edmx.diagram">
       <DependentUpon>ProductsModel.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -136,9 +148,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
