@@ -13,17 +13,17 @@ using WebAPIBit.Models;
 
 namespace WebAPIBit.Controllers
 {
-    public class TablesController : ApiController
+    public class ProductsController : ApiController
     {
         private ProductsDataBaseEntities db = new ProductsDataBaseEntities();
 
-        // GET: api/Tables
+        // GET: api/Products
         public IQueryable<Table> GetTables()
         {
             return db.Tables;
         }
 
-        // GET: api/Tables/5
+        // GET: api/Products/5
         [ResponseType(typeof(Table))]
         public async Task<IHttpActionResult> GetTable(int id)
         {
@@ -36,7 +36,7 @@ namespace WebAPIBit.Controllers
             return Ok(table);
         }
 
-        // PUT: api/Tables/5
+        // PUT: api/Products/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutTable(int id, Table table)
         {
@@ -71,7 +71,7 @@ namespace WebAPIBit.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Tables
+        // POST: api/Products
         [ResponseType(typeof(Table))]
         public async Task<IHttpActionResult> PostTable(Table table)
         {
@@ -101,7 +101,7 @@ namespace WebAPIBit.Controllers
             return CreatedAtRoute("DefaultApi", new { id = table.Id }, table);
         }
 
-        // DELETE: api/Tables/5
+        // DELETE: api/Products/5
         [ResponseType(typeof(Table))]
         public async Task<IHttpActionResult> DeleteTable(int id)
         {
