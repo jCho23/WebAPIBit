@@ -141,6 +141,10 @@
       <DependentUpon>ProductsModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Products23API - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Products23API - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Products45API - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Products45API - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
